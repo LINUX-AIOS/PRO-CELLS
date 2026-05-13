@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Outfit:wght@100;300;400;700;900&family=Space+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1d2f40;
+  --secondary: #d1d4d0;
+  --bg: #1d2f40;
+  --text: #d1d4d0;
+  --border: rgba(209, 212, 208, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Outfit', 'Almarai', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+  font-size: 15px; /* Increased from 13px */
+  line-height: 1.6;
+}
+
+.rtl {
+  direction: rtl;
+  font-family: 'Almarai', sans-serif;
+}
+
+/* ─── Custom Cursor ─── */
+.cursor-dot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: var(--secondary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--secondary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  opacity: 0.3;
+}
+
+/* ─── Glassmorphism ─── */
+.glass-card {
+  background: rgba(29, 47, 64, 0.4);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(209, 212, 208, 0.4);
+  background: rgba(29, 47, 64, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ─── Typography ─── */
+.hero-title {
+  font-size: clamp(2rem, 12vw, 7rem); /* Adjusted for better mobile scaling */
+  font-weight: 900;
+  line-height: 1.2; /* Increased further to prevent overlap */
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px; /* Increased from 10px */
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.rtl .section-tag {
+  letter-spacing: 0.1em;
+}
+
+/* ─── Hexagon Shapes (Logo Style) ─── */
+.hexagon-outline {
+  width: 60px;
+  height: 68px;
+  background: var(--border);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.hexagon-inner {
+  width: 58px;
+  height: 66px;
+  background: var(--primary);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hexagon {
+  width: 40px;
+  height: 46px;
+  background: var(--secondary);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+  padding: 14px 32px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px; /* Increased from 11px */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(209, 212, 208, 0.1);
+}
+
+.btn-outline {
+  padding: 14px 32px;
+  border: 1px solid var(--border);
+  color: var(--secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px; /* Increased from 11px */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-outline:hover {
+  border-color: var(--secondary);
+  background: rgba(209, 212, 208, 0.05);
+}
+
+/* ─── Utilities ─── */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.molecular-grid {
+  background-image: radial-gradient(var(--secondary) 0.5px, transparent 0.5px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+}
+
+.filter-silver {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(5%) saturate(143%) hue-rotate(54deg) brightness(101%) contrast(85%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(209, 212, 208, 0.02) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* ─── AI Markdown Styles ─── */
+.markdown-content strong {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.markdown-content em {
+  font-style: italic;
+  color: var(--secondary);
+  opacity: 0.9;
+}
+
+.markdown-content p {
+  margin-bottom: 0.8rem;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
