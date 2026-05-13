@@ -221,7 +221,7 @@ const Modal = ({ isOpen, onClose, content, lang }) => {
           {content.details}
         </p>
         <div className="flex justify-center">
-          <button onClick={onClose} className="btn-outline py-3 px-10 text-xs md:text-sm">{translations[lang].services.close}</button>
+          <button onClick={onClose} className="btn-outline py-3 px-10 text-sm md:text-base">{translations[lang].services.close}</button>
         </div>
         <div className="scanline" />
       </div>
@@ -254,7 +254,7 @@ const HexCard = ({ icon: Icon, title, desc, onClick, delay = 0 }) => (
       </div>
     </div>
     <h3 className="text-sm md:text-base font-bold uppercase tracking-wide mb-3 md:mb-4">{title}</h3>
-    <p className="text-[12px] md:text-sm text-secondary/60 leading-relaxed font-light">{desc}</p>
+    <p className="text-sm md:text-base text-secondary/60 leading-relaxed font-light">{desc}</p>
     <div className="scanline" />
   </button>
 );
@@ -317,7 +317,7 @@ export default function App() {
             <Logo width="50" className="md:w-[75px]" />
             <div className="flex flex-col">
               <span className="font-bold text-base md:text-xl text-secondary leading-none tracking-tighter">PRO CELLS</span>
-              <span className="font-mono text-[8px] md:text-[10px] text-secondary/40 uppercase tracking-[0.2em]">{lang === 'en' ? 'Professional Business Station' : 'محطة الأعمال الاحترافية'}</span>
+              <span className="font-mono text-xs md:text-sm text-secondary/40 uppercase tracking-[0.2em]">{lang === 'en' ? 'Professional Business Station' : 'محطة الأعمال الاحترافية'}</span>
             </div>
           </div>
           
@@ -330,7 +330,7 @@ export default function App() {
               }}
               className="w-full glass-card py-3 px-5 md:px-6 rounded-full flex items-center justify-between hover:border-secondary transition-all active:scale-95"
             >
-              <span className="text-[10px] md:text-xs font-mono text-secondary/40 tracking-widest truncate">{t.nav.aiSearch}</span>
+              <span className="text-xs md:text-sm font-mono text-secondary/40 tracking-widest truncate">{t.nav.aiSearch}</span>
               <div className="flex items-center gap-3">
                 <Search size={14} className="text-secondary/30" />
                 <Sparkles size={14} className="text-secondary/30 animate-pulse" />
@@ -360,7 +360,7 @@ export default function App() {
               <DynamicTitle titles={t.hero.titles} lang={lang} />
             </div>
           </h1>
-          <p className="text-[14px] md:text-lg text-secondary/60 max-w-2xl mx-auto font-light leading-relaxed mb-12 md:mb-16">
+          <p className="text-base md:text-lg text-secondary/60 max-w-2xl mx-auto font-light leading-relaxed mb-12 md:mb-16">
             {t.hero.desc}
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -380,7 +380,7 @@ export default function App() {
             <div className="reveal">
               <span className="section-tag">{t.identity.tag}</span>
               <h2 className="text-3xl md:text-6xl font-black uppercase mb-8 md:mb-12 tracking-tighter">{t.identity.title}</h2>
-              <div className="space-y-8 text-[14px] md:text-base text-secondary/60 font-light max-w-lg leading-loose">
+              <div className="space-y-8 text-base md:text-lg text-secondary/60 font-light max-w-lg leading-loose">
                 <p>{t.identity.p1}</p>
                 <div className="grid gap-6 md:gap-8 mt-12">
                   {[
@@ -391,8 +391,8 @@ export default function App() {
                     <button key={i} className="flex gap-5 text-left group w-full p-3 hover:bg-secondary/5 rounded-2xl transition-all" onClick={() => setModalData({...item, title: item.t, details: item.d, icon: item.i})}>
                       <div className="bg-secondary/10 p-4 rounded-xl shrink-0 group-hover:bg-secondary group-hover:text-primary transition-all"><item.i size={20} /></div>
                       <div>
-                        <h4 className="font-bold text-secondary text-[12px] md:text-sm uppercase tracking-widest mb-1.5">{item.t}</h4>
-                        <p className="text-[11px] md:text-[13px] opacity-60 leading-relaxed">{item.d}</p>
+                        <h4 className="font-bold text-secondary text-sm md:text-base uppercase tracking-widest mb-1.5">{item.t}</h4>
+                        <p className="text-sm md:text-base opacity-60 leading-relaxed">{item.d}</p>
                       </div>
                     </button>
                   ))}
@@ -408,8 +408,8 @@ export default function App() {
                     <li key={i} className="flex gap-5 md:gap-6">
                       <div className="w-1.5 h-1.5 bg-secondary mt-2 md:mt-3 shrink-0 opacity-40 rounded-full" />
                       <div>
-                        <h4 className="font-bold text-secondary text-[12px] md:text-sm uppercase tracking-wider mb-2">{item.t}</h4>
-                        <p className="text-[11px] md:text-[14px] text-secondary/50 font-light leading-relaxed">{item.d}</p>
+                        <h4 className="font-bold text-secondary text-sm md:text-base uppercase tracking-wider mb-2">{item.t}</h4>
+                        <p className="text-xs md:text-base text-secondary/50 font-light leading-relaxed">{item.d}</p>
                       </div>
                     </li>
                   ))}
@@ -452,7 +452,7 @@ export default function App() {
             ].map((sector, i) => (
               <button key={i} className="reveal glass-card p-8 md:p-12 text-center group hover:border-secondary/30 transition-all rounded-3xl" style={{ transitionDelay: `${i * 100}ms` }} onClick={() => setModalData({...sector, title: sector.t, icon: sector.i})}>
                 <sector.i size={24} className="md:w-8 md:h-8 mx-auto mb-4 md:mb-6 text-secondary/30 group-hover:text-secondary transition-colors" />
-                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest">{sector.t}</span>
+                <span className="text-xs md:text-sm font-bold uppercase tracking-widest">{sector.t}</span>
               </button>
             ))}
           </div>
@@ -466,18 +466,18 @@ export default function App() {
             <div className="reveal">
               <span className="section-tag">{t.connect.tag}</span>
               <h2 className="text-4xl md:text-6xl font-black uppercase mb-8 md:mb-12 tracking-tighter">{t.connect.title}</h2>
-              <p className="text-[14px] md:text-lg text-secondary/50 mb-10 md:mb-16 max-w-sm font-light leading-relaxed">{t.connect.desc}</p>
+              <p className="text-base md:text-lg text-secondary/50 mb-10 md:mb-16 max-w-sm font-light leading-relaxed">{t.connect.desc}</p>
               <div className="space-y-6">
                 <a href={`https://wa.me/966555984276`} className="btn-primary w-full justify-center flex gap-4 text-sm py-5 rounded-2xl">
                   <MessageSquare size={20} /> {t.connect.whatsapp}
                 </a>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="glass-card p-6 md:p-8 text-center rounded-2xl">
-                    <span className="text-[8px] md:text-[10px] font-mono text-secondary/30 uppercase mb-3 block tracking-widest">{t.connect.call}</span>
+                    <span className="text-xs md:text-sm font-mono text-secondary/30 uppercase mb-3 block tracking-widest">{t.connect.call}</span>
                     <FormattedNum lang={lang} className="font-bold text-sm md:text-base tracking-widest">+966 55 598 4276</FormattedNum>
                   </div>
                   <div className="glass-card p-6 md:p-8 text-center rounded-2xl">
-                    <span className="text-[8px] md:text-[10px] font-mono text-secondary/30 uppercase mb-3 block tracking-widest">{t.connect.web}</span>
+                    <span className="text-xs md:text-sm font-mono text-secondary/30 uppercase mb-3 block tracking-widest">{t.connect.web}</span>
                     <span className="font-bold text-sm md:text-base tracking-widest">procells.sa</span>
                   </div>
                 </div>
@@ -485,27 +485,27 @@ export default function App() {
             </div>
             <div className="reveal space-y-6 md:space-y-10">
               <div className="glass-card p-10 md:p-16 bg-secondary/5 rounded-[2.5rem] md:rounded-[3.5rem]">
-                <span className="text-[10px] md:text-xs font-mono text-secondary/30 uppercase mb-8 md:mb-12 block tracking-[0.4em]">{t.connect.socialTag}</span>
+                <span className="text-xs md:text-sm font-mono text-secondary/30 uppercase mb-8 md:mb-12 block tracking-[0.4em]">{t.connect.socialTag}</span>
                 <div className="grid gap-4 md:gap-6">
                   {[
-                    { n: t.connect.insta, h: "https://www.instagram.com/PROCELLS24", i: () => <div className="w-6 h-6 border border-secondary/20 rounded-lg flex items-center justify-center text-[10px] md:text-xs">IG</div> },
-                    { n: t.connect.tiktok, h: "https://www.tiktok.com/@procells24", i: () => <div className="w-6 h-6 border border-secondary/20 rounded-lg flex items-center justify-center text-[10px] md:text-xs">TK</div> },
-                    { n: t.connect.snap, h: "https://www.snapchat.com/@procells24", i: () => <div className="w-6 h-6 border border-secondary/20 rounded-lg flex items-center justify-center text-[10px] md:text-xs">SC</div> }
+                    { n: t.connect.insta, h: "https://www.instagram.com/PROCELLS24", i: () => <div className="w-6 h-6 border border-secondary/20 rounded-lg flex items-center justify-center text-xs md:text-sm">IG</div> },
+                    { n: t.connect.tiktok, h: "https://www.tiktok.com/@procells24", i: () => <div className="w-6 h-6 border border-secondary/20 rounded-lg flex items-center justify-center text-xs md:text-sm">TK</div> },
+                    { n: t.connect.snap, h: "https://www.snapchat.com/@procells24", i: () => <div className="w-6 h-6 border border-secondary/20 rounded-lg flex items-center justify-center text-xs md:text-sm">SC</div> }
                   ].map((s, i) => (
                     <a key={i} href={s.h} className="flex items-center justify-between p-4 md:p-6 rounded-2xl border border-secondary/5 hover:bg-secondary/10 transition-all group">
-                      <div className="flex items-center gap-6"><s.i /><span className="text-[12px] md:text-sm font-bold uppercase tracking-widest">{s.n}</span></div>
+                      <div className="flex items-center gap-6"><s.i /><span className="text-sm md:text-base font-bold uppercase tracking-widest">{s.n}</span></div>
                       <ArrowRight size={16} className="opacity-10 group-hover:opacity-40 md:w-5 md:h-5" />
                     </a>
                   ))}
                 </div>
               </div>
               <div className="p-6 md:p-10 border border-dashed border-secondary/20 rounded-3xl flex items-center gap-6 md:gap-8">
-                <div className="w-14 h-14 md:w-20 md:h-20 hexagon bg-secondary text-primary font-black text-xs md:text-lg shrink-0">
+                <div className="w-14 h-14 md:w-20 md:h-20 hexagon bg-secondary text-primary font-black text-sm md:text-lg shrink-0">
                   <FormattedNum lang={lang}>50%</FormattedNum>
                 </div>
                 <div>
-                  <h5 className="font-bold text-secondary text-[10px] md:text-xs uppercase mb-1.5 md:mb-2 tracking-widest">{t.connect.offerTitle}</h5>
-                  <p className="text-[10px] md:text-[13px] opacity-60 leading-relaxed font-light">{t.connect.offerDesc}</p>
+                  <h5 className="font-bold text-secondary text-xs md:text-sm uppercase mb-1.5 md:mb-2 tracking-widest">{t.connect.offerTitle}</h5>
+                  <p className="text-xs md:text-sm opacity-60 leading-relaxed font-light">{t.connect.offerDesc}</p>
                 </div>
               </div>
             </div>
@@ -515,27 +515,27 @@ export default function App() {
 
       {/* ─── FOOTER ─── */}
       <footer className="py-16 md:py-24 border-t border-secondary/5 bg-primary/40 relative">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center gap-12 md:gap-16 font-mono text-[8px] md:text-[10px] text-secondary/30 uppercase tracking-[0.2em]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center gap-12 md:gap-16 font-mono text-xs md:text-sm text-secondary/30 uppercase tracking-[0.2em]">
           <div className="flex flex-col md:flex-row justify-between w-full items-center gap-12 md:gap-20">
             <div className="flex items-center gap-6">
               <Logo width="45" className="opacity-90 md:w-[60px]" />
               <div className="flex flex-col">
-                <span className="text-secondary/60 font-bold text-[10px] md:text-xs">{t.footer.tag}</span>
+                <span className="text-secondary/60 font-bold text-xs md:text-sm">{t.footer.tag}</span>
                 <span className="mt-1">&copy; <FormattedNum lang={lang}>2026</FormattedNum> {lang === 'en' ? 'Professional Business Station' : 'محطة الأعمال الاحترافية'}</span>
               </div>
             </div>
             
             <div className="flex flex-wrap justify-center gap-10 md:gap-20 text-center">
-              <div><p className="opacity-40 mb-2">{t.footer.loc}</p><p className="text-secondary/50 font-bold text-[10px] md:text-xs">{t.footer.locVal}</p></div>
-              <div><p className="opacity-40 mb-2">{t.footer.op}</p><p className="text-secondary/50 font-bold text-[10px] md:text-xs">{lang === 'en' ? t.footer.opVal : <FormattedNum lang={lang}>الأربعاء ٨:٠٠ صباحاً – ٥:٠٠ مساءً</FormattedNum>}</p></div>
-              <div><p className="opacity-40 mb-2">{t.footer.legal}</p><p className="text-secondary/50 font-bold text-[10px] md:text-xs">{t.footer.legalVal}</p></div>
+              <div><p className="opacity-40 mb-2">{t.footer.loc}</p><p className="text-secondary/50 font-bold text-xs md:text-sm">{t.footer.locVal}</p></div>
+              <div><p className="opacity-40 mb-2">{t.footer.op}</p><p className="text-secondary/50 font-bold text-xs md:text-sm">{lang === 'en' ? t.footer.opVal : <FormattedNum lang={lang}>الأربعاء ٨:٠٠ صباحاً – ٥:٠٠ مساءً</FormattedNum>}</p></div>
+              <div><p className="opacity-40 mb-2">{t.footer.legal}</p><p className="text-secondary/50 font-bold text-xs md:text-sm">{t.footer.legalVal}</p></div>
             </div>
           </div>
           
           <div className="mt-12 pt-12 border-t border-secondary/5 w-full flex justify-center">
             <a 
               href="https://khan.linux-aios.com" 
-              className="text-[10px] md:text-xs text-secondary/30 hover:text-secondary/90 transition-all duration-300 tracking-[0.5em] font-medium group"
+              className="text-xs md:text-sm text-secondary/30 hover:text-secondary/90 transition-all duration-300 tracking-[0.5em] font-medium group"
               target="_blank"
               rel="noopener noreferrer"
             >
