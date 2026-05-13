@@ -34,7 +34,7 @@ git push -u origin main
     - Go to **Site Settings** > **Environment variables**.
     - Click **"Add a variable"**.
     - **Key**: `VITE_GROQ_API_KEY`
-    - **Value**: `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`
+    - **Value**: Paste your Groq API key here (get it from console.groq.com)
     - Click **Save**.
 5.  **Trigger Deploy**: Netlify will now build your site. If it doesn't start automatically, go to **Deploys** and click **"Trigger deploy"**.
 
